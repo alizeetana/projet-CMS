@@ -9,7 +9,7 @@ class Article {
 		$query = $pdo->prepare("SELECT * FROM articles");
 		$query->execute();
 
-		return $querry->fetchAll();
+		return $query->fetchAll();
 	}
 
 	public function fetch_data($article_id) {

@@ -1,7 +1,7 @@
 <?php 
 
 include_once('includes/connection.php');
-include_once('includes/articles.php');
+include_once('includes/article.php');
 
 if (isset($_GET['id'])) {
 	$id = $_GET['id'];
