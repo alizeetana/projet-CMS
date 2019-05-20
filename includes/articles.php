@@ -6,8 +6,8 @@ class Article {
 	public function fetch_all() {
 		global $pdo;
 
-		$querry = $pdo->prepare("SELECT * FROM articles");
-		$querry->execute();
+		$query = $pdo->prepare("SELECT * FROM articles");
+		$query->execute();
 
 		return $querry->fetchAll();
 	}
