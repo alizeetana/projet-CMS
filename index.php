@@ -34,6 +34,10 @@ $articles = $article->fetch_all();
 				</li>
 				<?php } ?>
 			</ol>
+
+			<br />
+
+			<small><a href="admin">admin</a></small>
 		</div>
 	</body>
 </html>
