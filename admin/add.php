@@ -23,7 +23,9 @@ if(isset($_SESSION['logged_in'])) {
 				$query->bindValue(3, time());
 
 				$query->execute();
-
+				/*?>
+				<?php echo $query; ?>
+				<?php */
 				header('Location: index.php');
 			}
 
