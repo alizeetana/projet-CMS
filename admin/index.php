@@ -32,7 +32,7 @@ if (isset($_SESSION['logged_in'])) {
 
 	<?php 
 } else {
-	if (isset($_POST['username'], $_POST['password'])) {
+if (isset($_POST['username'], $_POST['password'])) {
 			$username = $_POST['username'];
 			$password = md5($_POST['password']);
 
@@ -49,15 +49,18 @@ if (isset($_SESSION['logged_in'])) {
 
 				$query->execute();
 
-				/*$num = $query->rowCount();*/
-
+				
+				$num = $query->rowCount();
+				
 				$num = 1;
+
+				
 
 				if ($num == 1) {
 
 					$_SESSION['logged_in'] = true;
 					$_SESSION['user'] = $username;
-					header('Location: index.php');
+					header('Location: ../index.php');
 					exit();
 
 				} else {
@@ -78,9 +81,9 @@ if (isset($_SESSION['logged_in'])) {
 
 		<body>
 			<div class="container">
-				<a href="index.php" id="logo">CMS</a>	
+				<h4>Login</h4>	
 
-				<br /><br />
+				<br />
 
 				<?php if (isset($error)) { ?>
 					<small style="color:#aa0000;"><?php echo $error; ?></small>
@@ -90,9 +93,15 @@ if (isset($_SESSION['logged_in'])) {
 				<?php } ?>
 		
 				<form action="index.php" method="post" autocomplete="off">
+					<p>
+					<label>Username</label>
 					<input type="text" name="username" placeholder="Username" />
+					</p>
+					<p>
+					<label>Password</label>
 					<input type="password" name="password" placeholder="Password" />
-					<input type="submit" name="logged_in" />
+					</p>
+					<input type="submit" name="logged_in" value="login" />
 				</form>
 			</div>
 		</body>
