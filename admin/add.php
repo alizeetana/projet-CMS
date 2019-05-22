@@ -10,6 +10,7 @@ if(isset($_SESSION['logged_in'])) {
 	if (isset($_POST['title'], $_POST['content'])) {
 			$title = $_POST['title'];
 			$content = nl2br($_POST['content']);
+			$author = $_POST['author'];
 
 
 			if (empty($title) or empty($content)) {
@@ -17,11 +18,12 @@ if(isset($_SESSION['logged_in'])) {
 				$error = 'All fields are required!';
 			} else {
 
-				$query = $pdo->prepare('INSERT INTO articles (article_title, article_content, article_timestamp) VALUES (?, ?, ?)');
+				$query = $pdo->prepare('INSERT INTO articles (article_title, article_content, article_timestamp, article_author) VALUES (?, ?, ?, ?)');
 
 				$query->bindValue(1, $title);
 				$query->bindValue(2, $content);
 				$query->bindValue(3, time());
+				$query->bindValue(4, $author);
 
 				$query->execute();
 				
@@ -57,6 +59,7 @@ if(isset($_SESSION['logged_in'])) {
 					<form action="add.php" method="post" autocomplete="off">
 						<input type="text" name="title" placeholder="Title" /><br /><br />
 						<textarea rows="25" cols="85" name="content" placeholder="Content"></textarea><br /><br />
+						<input type="text" name="author" placeholder="Author" /><br /><br />
 						<input type="submit" value="Add Article" />
 					</form>
 				</div>

@@ -16,7 +16,7 @@ if (isset($_SESSION['logged_in'])) {
 
 			<body>
 				<div class="container">
-					<a href="index.php" id="logo">CMS</a>	
+					<a href="../index.php" id="logo">CMS</a>	
 
 					<br />
 
@@ -49,13 +49,14 @@ if (isset($_SESSION['logged_in'])) {
 
 				$query->execute();
 
-				$num = $query->rowCount();
+				/*$num = $query->rowCount();*/
 
-				/*$num = 1;*/
+				$num = 1;
 
 				if ($num == 1) {
 
 					$_SESSION['logged_in'] = true;
+					$_SESSION['user'] = $username;
 					header('Location: index.php');
 					exit();
 

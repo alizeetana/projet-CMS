@@ -31,6 +31,10 @@ if (isset($_GET['id'])) {
 
 				<p><?php echo $data['article_content']; ?></p>
 
+				<br />
+				<small>written by <?php echo $data['article_author'];?> </small> 
+				<br />
+
 				<a href="index.php">&larr; Back</a>
 				
 			</div>
