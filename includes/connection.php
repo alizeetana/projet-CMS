@@ -5,9 +5,9 @@
 	} catch (PDOException $e) {
 
 		exit('Database error.');
-		/*echo "Connection failed.";
+		echo "Connection failed.";
 		$e->getMessage();
-		echo $e;*/
+		echo $e;
 	}
 
 ?>

@@ -51,6 +51,8 @@ if (isset($_SESSION['logged_in'])) {
 
 				$num = $query->rowCount();
 
+				/*$num = 1;*/
+
 				if ($num == 1) {
 
 					$_SESSION['logged_in'] = true;

@@ -22,12 +22,15 @@ if (isset($_SESSION['logged_in'])) {
 
 					<br />
 
+					<h4>Select an article to delete:</h4>
+
 					<form action="delete.php" method="get">
 						<select onchange="this.form.submit();">
 							
-							<?php foreach ($artcles as $article) { ?>
+							<?php foreach ($articles as $article) { ?>
 
-								<option value="<?php echo $article['article_id']; ?>"><?php echo $article['article_title;'] ?></option>
+								<option value="<?php echo $article['article_id']; ?>"><?php echo $article['article_title']; ?>
+								</option>
 
 							<?php } ?>
 
@@ -40,9 +43,6 @@ if (isset($_SESSION['logged_in'])) {
 <?php
 } else {
 
-	header('Location: index.php')
+	header('Location: index.php');
 
-
-}
-
-?>
+} ?>
