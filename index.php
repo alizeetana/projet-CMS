@@ -21,7 +21,9 @@ $articles = $article->fetch_all();
 		
 
 			<ol>
-				<?php foreach ($articles as $article) { ?>
+				<?php
+
+				 foreach ($articles as $article) { ?>
 					
 				<li>
 					<a href="article.php?id=<?php echo $article['article_id']; ?>">

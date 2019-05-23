@@ -34,7 +34,7 @@ if (isset($_SESSION['logged_in'])) {
 } else {
 if (isset($_POST['username'], $_POST['password'])) {
 			$username = $_POST['username'];
-			$password = md5($_POST['password']);
+			$password = ($_POST['password']);
 
 			if (empty($username) or empty($password)) {
 
@@ -42,7 +42,7 @@ if (isset($_POST['username'], $_POST['password'])) {
 
 			} else {
 
-				$query = $pdo->prepare("SELECT * FROM users WHERE user_name = ? AND user_password = ?");
+				$query = $pdo->prepare("SELECT * FROM users WHERE user_name = ? AND user_password = ? ");
 
 				$query->bindValue(1, $username);
 				$query->bindValue(2, $password);
@@ -52,14 +52,14 @@ if (isset($_POST['username'], $_POST['password'])) {
 				
 				$num = $query->rowCount();
 				
-				$num = 1;
+				/*$num = 1;*/
 
 				
 
 				if ($num == 1) {
 
 					$_SESSION['logged_in'] = true;
-					$_SESSION['user'] = $username;
+					$_SESSION['username'] = $username;
 					header('Location: ../index.php');
 					exit();
 

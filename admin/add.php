@@ -10,7 +10,8 @@ if(isset($_SESSION['logged_in'])) {
 	if (isset($_POST['title'], $_POST['content'])) {
 			$title = $_POST['title'];
 			$content = nl2br($_POST['content']);
-			$author = $_POST['author'];
+			//$author = $_POST['author'];
+			$author = $_SESSION['username'];
 
 
 			if (empty($title) or empty($content)) {
@@ -58,8 +59,8 @@ if(isset($_SESSION['logged_in'])) {
 
 					<form action="add.php" method="post" autocomplete="off">
 						<input type="text" name="title" placeholder="Title" /><br /><br />
-						<textarea rows="25" cols="85" name="content" placeholder="Content"></textarea><br /><br />
-						<input type="text" name="author" placeholder="Author" /><br /><br />
+						<textarea rows="25" cols="60" name="content" placeholder="Content"></textarea><br /><br />
+						
 						<input type="submit" value="Add Article" />
 					</form>
 				</div>
